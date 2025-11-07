@@ -1,0 +1,26 @@
+services:
+  mongodb:
+    image: mongo:7.0
+    container_name: notes-mongodb
+    restart: always
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password
+      MONGO_INITDB_DATABASE: notesdb
+    volumes:
+      - mongo-data:/data/db
+
+  notes-app:
+    build: .
+    container_name: notes-app
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATA_MONGODB_URI: mongodb://root:password@mongodb:27017/notesdb?authSource=admin
+    depends_on:
+      - mongodb
+
+volumes:
+  mongo-data:
