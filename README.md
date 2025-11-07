@@ -17,10 +17,9 @@ A simple Spring Boot application for storing daily notes with **tags**, **pagina
 ## 📦 How to Run
 
 ### 🔹 Option 1: Run with Docker Compose
-Clone the repository and navigate to the project directory:
+Clone the repository:
 ```bash
-git clone https://github.com/yourusername/notes-app.git
-cd notes-app
+git clone https://github.com/iivvakii/Notes.git
 ```
 
 Then start the containers:
